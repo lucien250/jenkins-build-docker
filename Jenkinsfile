@@ -13,9 +13,9 @@ node{
         }
       }
   stage('Push') {
-            docker.withRegistry('https://registry.gitlab.com', 'reg1') {
-                img.push 'latest'
-                img.push()
+        docker.withRegistry('https://registry.gitlab.com', 'reg1') {
+            img.push('latest')
+            img.push("version-${env.BUILD_ID}")
+       }
      }
-   }
-}
+  }
